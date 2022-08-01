@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/SPA-Weather/static/css/main.b64c6ba6.css",
+    "main.js": "/SPA-Weather/static/js/main.c182cef9.js",
+    "static/media/sunset.jpg": "/SPA-Weather/static/media/sunset.ab19eb6fc568e5c0ff4d.jpg",
+    "index.html": "/SPA-Weather/index.html",
+    "main.b64c6ba6.css.map": "/SPA-Weather/static/css/main.b64c6ba6.css.map",
+    "main.c182cef9.js.map": "/SPA-Weather/static/js/main.c182cef9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b64c6ba6.css",
+    "static/js/main.c182cef9.js"
+  ]
+}
