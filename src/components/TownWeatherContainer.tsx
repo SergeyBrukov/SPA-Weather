@@ -91,91 +91,93 @@ const TownWeatherContainer: FC<ITownWeatherContainerProps> = ({
   }
 
   return (
-    <Card className={`card-container ${colorShadow}`} sx={{ marginTop: '50px' }}>
-      {alertShow && (
-        <CustomAlert severityType="warning" message="This city is already in the list of saved" />
-      )}
-      {progress ? (
-        <Progres />
-      ) : locationWeather ? (
-        <Box>
-          <SelectedCities
-            removeSelectedTown={removeSelectedTown}
-            setLocationWeather={setLocationWeather}
-            chooseTown={chooseTown}
-          />
+    <Box sx={{ margin: '50px 20px' }}>
+      <Card className={`card-container ${colorShadow}`}>
+        {alertShow && (
+          <CustomAlert severityType="warning" message="This city is already in the list of saved" />
+        )}
+        {progress ? (
+          <Progres />
+        ) : locationWeather ? (
           <Box>
-            <CardContent>
-              <TimeAndLocation locationWeather={locationWeather} />
-            </CardContent>
-            <CardContent>
-              <ImgTempWeather locationWeather={locationWeather} />
-            </CardContent>
-            <CardContent>
-              <DescriptionWeather locationWeather={locationWeather} />
-            </CardContent>
-            <CardActions
-              sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Button
-                size="small"
-                onClick={() =>
-                  navigate(`/weather/${locationWeather?.name}`, {
-                    state: { lon: locationWeather.coord.lon, lat: locationWeather.coord.lat },
-                  })
-                }
-                sx={{
-                  color: 'white',
-                  '&:hover': {
-                    color: '#8cc6ff',
-                    transition: 'all 0.5s',
-                  },
-                }}>
-                Detais
-              </Button>
-              <Button
-                sx={{
-                  color: 'white',
-                  '&:hover': {
-                    color: '#8cc6ff',
-                    transition: 'all 0.5s',
-                  },
-                }}
-                size="small"
-                onClick={() => addTownFun(locationWeather?.name)}
-                title="Add town">
-                <AddLocationAltIcon />
-              </Button>
-            </CardActions>
+            <SelectedCities
+              removeSelectedTown={removeSelectedTown}
+              setLocationWeather={setLocationWeather}
+              chooseTown={chooseTown}
+            />
+            <Box>
+              <CardContent>
+                <TimeAndLocation locationWeather={locationWeather} />
+              </CardContent>
+              <CardContent>
+                <ImgTempWeather locationWeather={locationWeather} />
+              </CardContent>
+              <CardContent>
+                <DescriptionWeather locationWeather={locationWeather} />
+              </CardContent>
+              <CardActions
+                sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <Button
+                  size="small"
+                  onClick={() =>
+                    navigate(`/weather/${locationWeather?.name}`, {
+                      state: { lon: locationWeather.coord.lon, lat: locationWeather.coord.lat },
+                    })
+                  }
+                  sx={{
+                    color: 'white',
+                    '&:hover': {
+                      color: '#8cc6ff',
+                      transition: 'all 0.5s',
+                    },
+                  }}>
+                  Detais
+                </Button>
+                <Button
+                  sx={{
+                    color: 'white',
+                    '&:hover': {
+                      color: '#8cc6ff',
+                      transition: 'all 0.5s',
+                    },
+                  }}
+                  size="small"
+                  onClick={() => addTownFun(locationWeather?.name)}
+                  title="Add town">
+                  <AddLocationAltIcon />
+                </Button>
+              </CardActions>
+            </Box>
           </Box>
-        </Box>
-      ) : (
-        <CardContent sx={{ fontSize: '14px' }}>
-          <Typography
-            variant="h5"
-            sx={{
-              fontSize: '18px',
-              paddingBottom: '20px',
-              textAlign: 'center',
-              fontWeight: 600,
-              fontFamily: 'Outfit',
-            }}>
-            A day in history
-          </Typography>
-          <Typography className="typography-info">
-            The maximum air temperature recorded in the Service for the last 73 years of
-            observations is +32.5°C, recorded on July 27, 1994.
-          </Typography>
-          <Typography className="typography-info">
-            The absolute minimum of +8.9°C was recorded in 1987.
-          </Typography>
-          <Typography className="typography-info">
-            The average temperature for this day is +25.3°C. The heaviest precipitation in Service
-            was recorded on July 27, 2004 - 27.2 mm. The maximum wind gusts were in 1975 - up to
-            17.97 m / s.
-          </Typography>
-        </CardContent>
-      )}
-    </Card>
+        ) : (
+          <CardContent sx={{ fontSize: '14px' }}>
+            <Typography
+              variant="h5"
+              sx={{
+                fontSize: '18px',
+                paddingBottom: '20px',
+                textAlign: 'center',
+                fontWeight: 600,
+                fontFamily: 'Outfit',
+              }}>
+              A day in history
+            </Typography>
+            <Typography className="typography-info">
+              The maximum air temperature recorded in the Service for the last 73 years of
+              observations is +32.5°C, recorded on July 27, 1994.
+            </Typography>
+            <Typography className="typography-info">
+              The absolute minimum of +8.9°C was recorded in 1987.
+            </Typography>
+            <Typography className="typography-info">
+              The average temperature for this day is +25.3°C. The heaviest precipitation in Service
+              was recorded on July 27, 2004 - 27.2 mm. The maximum wind gusts were in 1975 - up to
+              17.97 m / s.
+            </Typography>
+          </CardContent>
+        )}
+      </Card>
+    </Box>
   );
 };
 

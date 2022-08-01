@@ -62,12 +62,15 @@ export const SelectedCities: FC<ISelectedCities> = ({
                 onClick={() => fetchWeatherSelectedTown(town.name)}
                 variant="outlined"
                 sx={{
+                  color: 'white',
+                  border: '1px solid white',
                   padding: '5px 50px 5px 5px',
                   position: 'relative',
                 }}>
                 {town.name}
                 <Button
                   sx={{
+                    color: 'white',
                     position: 'absolute',
                     right: '10%',
                     padding: 0,

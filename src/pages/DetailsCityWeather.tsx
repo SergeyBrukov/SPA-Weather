@@ -39,41 +39,51 @@ export const DetailsCityWeather = () => {
   }, []);
 
   return (
-    <Card
-      className={`card-container ${colorShadow}`}
-      sx={{ top: '50%', transform: 'translateY(-50%)' }}>
-      {progress ? (
-        <Progres />
-      ) : (
-        <>
-          <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Button title="Back" onClick={() => navigation(-1)}>
-              <ReplyAllIcon />
-            </Button>
-            <Typography sx={{ textAlign: 'center', padding: '15px  0', fontSize: '20px' }}>
-              Details weather information {town} city
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: 'grid',
-              justifyContent: 'space-between',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              rowGap: '15px',
-            }}>
-            {weatherDetails &&
-              weatherDetails.map(({ time, icon, temp }) => {
-                return (
-                  <Box key={time} sx={{ textAlign: 'center', margin: '15px' }}>
-                    <Typography>{time}</Typography>
-                    <img src={iconUrlFromCode(icon)} className="w-12 my-1" alt="" />
-                    <Typography>{`${temp}°`}</Typography>
-                  </Box>
-                );
-              })}
-          </Box>
-        </>
-      )}
-    </Card>
+    <Box sx={{ margin: '50px 20px' }}>
+      <Card className={`card-container ${colorShadow}`}>
+        {progress ? (
+          <Progres />
+        ) : (
+          <>
+            <Box
+              sx={{
+                display: 'flex',
+                padding: '25px',
+                gap: '25px',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Button
+                title="Back"
+                sx={{ minWidth: 'auto', padding: '0' }}
+                onClick={() => navigation(-1)}>
+                <ReplyAllIcon />
+              </Button>
+              <Typography sx={{ textAlign: 'center', fontSize: '20px' }}>
+                Details weather information {town} city
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'grid',
+                justifyContent: 'space-between',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                rowGap: '15px',
+              }}>
+              {weatherDetails &&
+                weatherDetails.map(({ time, icon, temp }) => {
+                  return (
+                    <Box key={time} sx={{ textAlign: 'center', margin: '15px' }}>
+                      <Typography>{time}</Typography>
+                      <img src={iconUrlFromCode(icon)} className="w-12 my-1" alt="" />
+                      <Typography>{`${temp}°`}</Typography>
+                    </Box>
+                  );
+                })}
+            </Box>
+          </>
+        )}
+      </Card>
+    </Box>
   );
 };
