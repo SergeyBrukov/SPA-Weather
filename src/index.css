@@ -59,8 +59,8 @@ body {
 }
 
 .card-container {
-  max-width: 500px;
-  min-height: 500px;
+  /* max-width: 500px;
+  min-height: 500px; */
   color: white !important;
   margin: 50px auto;
   background: none !important;

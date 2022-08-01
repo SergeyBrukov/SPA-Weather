@@ -92,7 +92,9 @@ const TownWeatherContainer: FC<ITownWeatherContainerProps> = ({
 
   return (
     <Box sx={{ margin: '50px 20px' }}>
-      <Card className={`card-container ${colorShadow}`}>
+      <Card
+        className={`card-container ${colorShadow}`}
+        sx={{ minHeight: '550px', maxWidth: '500px' }}>
         {alertShow && (
           <CustomAlert severityType="warning" message="This city is already in the list of saved" />
         )}

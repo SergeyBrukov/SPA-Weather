@@ -40,7 +40,9 @@ export const DetailsCityWeather = () => {
 
   return (
     <Box sx={{ margin: '50px 20px' }}>
-      <Card className={`card-container ${colorShadow}`}>
+      <Card
+        className={`card-container ${colorShadow}`}
+        sx={{ minHeight: '650px', maxWidth: '500px' }}>
         {progress ? (
           <Progres />
         ) : (
