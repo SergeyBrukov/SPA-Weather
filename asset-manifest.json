@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SPA-Weather/static/css/main.36469394.css",
-    "main.js": "/SPA-Weather/static/js/main.75f08e07.js",
+    "main.js": "/SPA-Weather/static/js/main.793c05d0.js",
     "static/media/sunset.jpg": "/SPA-Weather/static/media/sunset.ab19eb6fc568e5c0ff4d.jpg",
     "index.html": "/SPA-Weather/index.html",
     "main.36469394.css.map": "/SPA-Weather/static/css/main.36469394.css.map",
-    "main.75f08e07.js.map": "/SPA-Weather/static/js/main.75f08e07.js.map"
+    "main.793c05d0.js.map": "/SPA-Weather/static/js/main.793c05d0.js.map"
   },
   "entrypoints": [
     "static/css/main.36469394.css",
-    "static/js/main.75f08e07.js"
+    "static/js/main.793c05d0.js"
   ]
 }
