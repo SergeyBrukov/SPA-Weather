@@ -1,9 +1,9 @@
-import { Alert, Button, Card, CardActions, CardContent, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Alert, Button, Card, CardActions, CardContent, Typography, Box } from '@mui/material';
+import UpdateIcon from '@mui/icons-material/Update';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { TypeSetState } from '../utils/type';
-import { IFetchWeatherTown, ISelectedCity } from '../utils/interface';
+import { IFetchWeatherTown, ISelectedCity, ISearchFields } from '../utils/interface';
 import { DescriptionWeather } from './DescriptionWeather';
 import { ImgTempWeather } from './ImgTempWeather';
 import { SelectedCities } from './SelectedCities';
@@ -15,6 +15,7 @@ import { Progres } from './Progres';
 
 interface ITownWeatherContainerProps {
   locationWeather: IFetchWeatherTown | null;
+  fetchWeather: (location: ISearchFields) => void;
   progress: boolean;
   errors: string | null;
   setLocationWeather: TypeSetState<IFetchWeatherTown | null>;
@@ -25,6 +26,7 @@ const TownWeatherContainer: FC<ITownWeatherContainerProps> = ({
   progress,
   errors,
   setLocationWeather,
+  fetchWeather,
 }) => {
   const { colorShadow, setColorShadow } = useContext(ContextColorShadow);
   const [chooseTown, setChooseTown] = useState<ISelectedCity[]>([]);
@@ -134,6 +136,18 @@ const TownWeatherContainer: FC<ITownWeatherContainerProps> = ({
                     },
                   }}>
                   Detais
+                </Button>
+                <Button
+                  sx={{
+                    color: 'white',
+                    '&:hover': {
+                      color: '#8cc6ff',
+                      transition: 'all 0.5s',
+                    },
+                  }}
+                  title="Update"
+                  onClick={() => fetchWeather({ location: locationWeather?.name })}>
+                  <UpdateIcon />
                 </Button>
                 <Button
                   sx={{

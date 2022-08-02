@@ -16,7 +16,9 @@ export const WeatherPage: FC = () => {
   const { setProgress, progress } = useContext(ContextProgress);
 
   const [errors, setErrors] = useState<string | null>(null);
-  const { control, handleSubmit, setValue, reset } = useForm<ISearchFields>({ mode: 'onSubmit' });
+  const { control, handleSubmit, setValue, reset } = useForm<ISearchFields>({
+    mode: 'onSubmit',
+  });
 
   const fetchWeather: SubmitHandler<ISearchFields> = async ({ location }) => {
     setErrors(null);
@@ -91,6 +93,7 @@ export const WeatherPage: FC = () => {
         </form>
       </Container>
       <TownWeatherContainer
+        fetchWeather={fetchWeather}
         setLocationWeather={setLocationWeather}
         progress={progress}
         locationWeather={locationWeather}
